@@ -6,11 +6,12 @@ const classes = require('../lib/classes');
 module.exports = robot => {
   robot.hear(/set(?: the)? (.*) (\w+) (\w+)/i, (res) => {
     let [line, target, cls, action] = res.match;
+    console.log('>>>>>>');
     if (target === 'the') return;
 
     cls = classes[cls];
 
-    setSwtich(cls, target, action, res);
+    setSwitch(cls, target, action, res);
   });
 
   robot.hear(/(?:set )?(.*) scene/i, (res) => {
